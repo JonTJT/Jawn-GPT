@@ -2,15 +2,7 @@
 <html>
 <head>
     <title>ChatBot</title>
-    <style>
-        .prompt {
-            color: blue;
-        }
-
-        .response {
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 </head>
 <body>
     <div id="chat-container">
@@ -19,34 +11,6 @@
         <button onclick="sendMessage()">Send</button>
     </div>
 
-    <script>
-        function sendMessage() {
-            var userMessage = document.getElementById('user-input').value;
-            document.getElementById('user-input').value = '';
-
-            // Display user message
-            var userDiv = document.createElement('div');
-            userDiv.className = 'prompt';
-            userDiv.innerHTML = 'You: ' + userMessage;
-            document.getElementById('chat-box').appendChild(userDiv);
-
-            // Send user message to server
-            fetch('/send_message', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'user_message=' + userMessage
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Display bot response
-                var botDiv = document.createElement('div');
-                botDiv.className = 'response';
-                botDiv.innerHTML = 'Bot: ' + data.bot_response;
-                document.getElementById('chat-box').appendChild(botDiv);
-            });
-        }
-    </script>
+    <script src="../static/scripts/scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+body{
+  background-color: pink;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  font-size:65px;
+}
+
+.input-container{
+  position: absolute;
+  width:100%;
+  bottom:0;
+}
+
+.input-input{
+  width:95%;
+  margin-bottom: 10px;
+}
