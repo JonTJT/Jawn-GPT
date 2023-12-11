@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Button, Input, Typography} from 'antd';
+
+const {Text} = Typography;
 
 export const Chat = () =>  {
     const [messages, setMessages] = useState([]);
@@ -34,20 +37,22 @@ export const Chat = () =>  {
         <div className="chat-container">
             <div className="chat-box">
                 {messages.map((message, index) => (
-                    <div key={index} className={`message ${message.sender}`}>
-                        {message.sender}: {message.text}
+                    <div>
+                        <Text key={index} className={`message ${message.sender}`}>
+                            {message.sender}: {message.text}
+                        </Text>
                     </div>
                 ))}
             </div>
             <div className="input-container">
-                <input 
+                <Input 
                     className="input-input"
                     type="text"
                     value={inputMessage}
                     onChange={handleInputChange}
                     placeholder="Type a message..."
                 />
-                <button onClick={sendMessage}>Send</button>
+                <Button onClick={sendMessage}>Send</Button>
             </div>
         </div>
     )
