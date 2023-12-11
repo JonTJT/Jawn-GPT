@@ -16,17 +16,17 @@ def send_message():
     data = request.json
     user_message = data.get('user_message')  # Fetch user message from JSON data
 
-    # response = client.chat.completions.create(
-    #     model="gpt-3.5-turbo",
-    #     messages=[
-    #         {"role": "system", "content": "You are a helpful assistant"},
-    #         {"role": "user", "content": user_message}
-    #     ]
-    # )
-    response = "response to :" + user_message
-    # print(f"response = {response}")
-    # bot_response = response.choices[0].message.content
-    bot_response = response
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant"},
+            {"role": "user", "content": user_message}
+        ]
+    )
+    # response = "response to :" + user_message
+    print(f"response = {response}")
+    bot_response = response.choices[0].message.content
+    # bot_response = response
     return jsonify({'user_message': user_message, 'bot_response': bot_response})
 
 if __name__ == '__main__':
