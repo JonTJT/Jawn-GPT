@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Button, Input, Typography} from 'antd';
+import {CodeBlock} from 'react-code-blocks'
 
 const {Text} = Typography;
 
@@ -51,8 +52,15 @@ export const Chat = () =>  {
                     value={inputMessage}
                     onChange={handleInputChange}
                     placeholder="Type a message..."
+                    bordered={false}
+                    onPressEnter={sendMessage}
                 />
-                <Button onClick={sendMessage}>Send</Button>
+                <Button 
+                    onClick={sendMessage}
+                    type="text"
+                    >
+                    Send
+                </Button>
             </div>
         </div>
     )
