@@ -1,3 +1,4 @@
 venv/
+venv.bat
 secret_keys.py
 __pycache__/
